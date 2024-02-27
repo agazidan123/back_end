@@ -6,7 +6,7 @@ from passlib.context import CryptContext
 from authlib.integrations.starlette_client import OAuth
 from dotenv import load_dotenv
 from starlette.requests import Request
-from typing import List
+from typing import List, Optional
 from datetime import datetime, timedelta, timezone
 import jwt
 from sqlalchemy import Table, Column, Integer, String
@@ -47,7 +47,7 @@ class UserRegistration(BaseModel):
     last_name: str
     user_password: str
     user_email: EmailStr
-    user_location: str
+    user_location: Optional[str] = None
 
 
 class UserLogin(BaseModel):
